@@ -1,9 +1,32 @@
 extends ./layout  
 block content 
-  .container-fluid.d-flex.justify-content-end
+  .container-fluid
     .row
       .col-md-3
         include ./component/sidebar
       .col-md-9
-        .content
-          p.large-text Coming From Resume
+        .content-resume
+          p.large-text 
+          b Resume
+
+        .content-resume-text 
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, in, delectus laudantium incidunt numquam eius ut fuga blanditiis assumenda placeat provident non vero ipsam qui et eos! Aliquam, voluptatibus laudantium!
+
+        .row 
+          .content-resume1-col-md-6.mt-3
+            p.text-resume
+            b Sumary
+            p 
+
+
+          .content-resume2-col-md-6.mt-3
+
+    style. 
+      .content-resume{
+        margin-top :3rem;
+        font-size : 2rem;
+      }
+
+      .content-resume1{
+        font-size :1.5rem;
+      }

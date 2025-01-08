@@ -1,9 +1,74 @@
 extends ./layout  
 block content 
-  .container-fluid.d-flex.justify-content-end
+  .container-fluid
     .row
       .col-md-3
         include ./component/sidebar
       .col-md-9
-        .content
-          p.large-text Coming From Service
+        .content-service
+          p.large-text 
+          b Service
+
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quis perspiciatis voluptate maiores commodi consequatur, sunt suscipit eveniet officiis repellendus dignissimos! Doloremque, maiores veniam commodi quisquam soluta dolorum veritatis. Quisquam.
+
+        .row 
+          .service-card1.col-md-4.mt-3
+            .service-card1.d-flex
+              img(src="/img/sidebar-logo/about.png", alt="service1-logo", style="width:30px; height:30px;")
+              h2 Lorem Ipsum
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laboriosam quibusdam, a recusandae animi porro, aliquid tempora in labore minus dolores nobis. Veritatis sunt, obcaecati quasi nam maxime eligendi quis.
+
+          .service-card2.col-md-4.mt-3
+            .service-card2.d-flex
+              img(src="/img/sidebar-logo/service.png", alt="service2-logo", style="width:30px; height:30px;")
+              h2 Magni Dolores 
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempore explicabo aliquam aut perspiciatis commodi alias natus quam amet, facilis ratione! Amet, cumque! Ab quam corporis iste cum voluptatibus ea?
+
+          .service-card1.col-md-4.mt-3
+            .service-card1.d-flex
+              img(src="/img/sidebar-logo/about.png", alt="service1-logo", style="width:30px; height:30px;")
+              h2 Lorem Ipsum
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laboriosam quibusdam, a recusandae animi porro, aliquid tempora in labore minus dolores nobis. Veritatis sunt, obcaecati quasi nam maxime eligendi quis.
+
+          .service-card2.col-md-4.mt-3
+            .service-card2.d-flex
+              img(src="/img/sidebar-logo/service.png", alt="service2-logo", style="width:30px; height:30px;")
+              h2 Magni Dolores 
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempore explicabo aliquam aut perspiciatis commodi alias natus quam amet, facilis ratione! Amet, cumque! Ab quam corporis iste cum voluptatibus ea?
+
+          .service-card1.col-md-4.mt-3
+            .service-card1.d-flex
+              img(src="/img/sidebar-logo/about.png", alt="service1-logo", style="width:30px; height:30px;")
+              h2 Lorem Ipsum
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae laboriosam quibusdam, a recusandae animi porro, aliquid tempora in labore minus dolores nobis. Veritatis sunt, obcaecati quasi nam maxime eligendi quis.
+
+          .service-card2.col-md-4.mt-3
+            .service-card2.d-flex
+              img(src="/img/sidebar-logo/service.png", alt="service2-logo", style="width:30px; height:30px;")
+              h2 Magni Dolores 
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur tempore explicabo aliquam aut perspiciatis commodi alias natus quam amet, facilis ratione! Amet, cumque! Ab quam corporis iste cum voluptatibus ea?
+
+    style. 
+      .content-service{
+          margin-top :3rem;
+          font-size : 2rem;
+      }
+      .service-card1, .service-card2 {
+          
+          border-radius: 8px; 
+          padding: 20px; 
+          text-align: center; 
+      }
+      .service-card1 img, .service-card2 img {
+          max-width: 100%; 
+          height: auto;
+          margin-bottom: 15px; 
+      }
+      .service-card1 h2, .service-card2 h2 {
+          font-size: 24px; 
+          margin-bottom: 15px; 
+      }
+      .service-card1 p, .service-card2 p {
+          font-size: 16px; 
+          color: #6c757d; 
+      }

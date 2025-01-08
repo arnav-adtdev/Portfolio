@@ -4,26 +4,47 @@
       button.navbar-toggler(type="button", data-toggle="collapse", data-target="#sidebarContent", aria-controls="sidebarContent", aria-expanded="false", aria-label="Toggle navigation")
         span.navbar-toggler-icon
       .sidebar.collapse.d-flex.flex-column.align-items-center#sidebarContent
-        img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3", style="width: 5rem; height: 5rem; border-radius: 50%; " )
+        img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3", style="width: 5rem; height: 5rem; border-radius: 50%;")
         h2.text-center Arnav Chaturvedi 
-        .logo-container.d-flex
+        .logo-container
           a(href="https://www.instagram.com", target="_blank")
             img(src="/img/logo/instagram.png", alt="instagram", style="width:35px; height:35px; margin-right: 10px;")
-
           a(href="https://www.facebook.com", target="_blank")
             img(src="/img/logo/facebook.png", alt="facebook", style="width:35px; height:35px; margin-right: 10px;")
-
           a(href="https://www.linkedin.com", target="_blank")
             img(src="/img/logo/linkedin.png", alt="linkedin", style="width:35px; height:35px;")
-
-        
         ul.list-group.w-100
-          li.list-group-item: a(href="/") Home
-          li.list-group-item: a(href="/about") About
-          li.list-group-item: a(href="/resume") Resume
-          li.list-group-item: a(href="/service") Services
-          li.list-group-item: a(href="/dropdown") Dropdown
-          li.list-group-item: a(href="/contact") Contact
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/buy-a-house.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/") Home
+
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/about.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/about") About 
+          
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/resume.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/resume") Resume
+          
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/service.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/service") Service
+
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/dropdown.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/dropdown") Dropdown
+
+          div.d-flex.mb-3
+            img(src="/img/sidebar-logo/contact.png", alt="home-logo", style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/contact") Contact
+
+          
 
 style.
   .sidebar {
@@ -31,7 +52,7 @@ style.
     top: 0;
     left: 0;
     height: 100vh;
-    width: 18%; /* Adjust to 33.33% if you prefer */
+    width: 25%;
     background-color: black;
     color: white;
     display: flex;
@@ -47,17 +68,17 @@ style.
   }
 
   .logo-container {
-    width: 100%; /* Ensure full width for proper alignment */
+    width: 100%;
     display: flex;
   }
 
   .logo-container img {
-    margin-left: 1.5rem; /* Add gap between logos */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    margin-left: 1.5rem;
+    transition: transform 0.3s ease;
   }
 
   .logo-container img:hover {
-    transform: scale(1.2); /* Scale up the image on hover */
+    transform: scale(1.2);
   }
 
   .sidebar .list-group-item {
@@ -65,7 +86,7 @@ style.
     color: white;
     border: none;
     width: 100%;
-    margin-bottom: 3rem; /* Add a gap between the list items */
+    margin-bottom: 2rem;
     list-style-type: none;
   }
 
@@ -80,18 +101,17 @@ style.
   }
 
   .content {
-    margin-left: 25%; /* Adjust to 33.33% if you prefer */
-    width: 75%; /* Adjust to 66.66% if you prefer */
+    margin-left: 25%;
+    width: 75%;
     padding: 20px;
   }
 
-  /* Media query for mobile responsiveness */
   @media (max-width: 768px) {
     .sidebar {
       position: relative;
       width: 100%;
       height: auto;
-      flex-direction: column; /* Change back to column for better mobile layout */
+      flex-direction: column;
       justify-content: center;
       padding: 10px;
     }
@@ -102,24 +122,39 @@ style.
     }
 
     .logo-container img {
-      margin-left: 0.5rem; /* Adjust gap between logos for mobile */
+      margin-left: 0.5rem;
     }
 
     .sidebar img {
-      width: 4rem; /* Adjust size for mobile */
-      height: 4rem; /* Adjust size for mobile */
+      width: 4rem;
+      height: 4rem;
     }
 
     .navbar-toggler {
-      display: block; /* Show toggle button on mobile */
-      margin-bottom: 1rem; /* Add space below toggle button */
+      display: block;
+      margin-bottom: 1rem;
     }
 
     .sidebar {
-      display: none; /* Hide sidebar on mobile initially */
+      display: none;
     }
 
     .sidebar.show {
-      display: flex; /* Show sidebar when toggled */
+      display: flex;
     }
   }
+
+script.
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.querySelector('.navbar-toggler-icon');
+    const sidebar = document.getElementById('sidebarContent');
+    const closeButton = document.querySelector('.close-btn');
+
+    toggleButton.addEventListener('click', function () {
+      sidebar.classList.toggle('show');
+    });
+
+    closeButton.addEventListener('click', function () {
+      sidebar.classList.remove('show');
+    });
+  });
