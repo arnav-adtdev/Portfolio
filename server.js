@@ -70,7 +70,7 @@ app.post('/submit-form', async (req, res) => {
     const mailOptions = {
       from: req.body.email, // Use the user's email address
       to: process.env.EMAIL_USER,
-      subject: `Query Form : ${req.body.subject}`,
+      subject: `Portfolio Form : ${req.body.subject}`,
       html: `
         <h3>Contact Form Submission</h3>
         <table border="1" cellpadding="10" cellspacing="0">
