@@ -1,0 +1,54 @@
+extends ./layout  
+block content 
+  .container-fluid.d-flex.justify-content-end
+    .row
+      .col-md-3
+        include ./component/sidebar
+      .col-md-9.background-image
+        .content
+          p.large-text Arnav Chaturvedi
+          p.animated-text 
+            span I'm
+            span Web
+            span Developer
+
+    style.
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      .animated-text span {
+        display: inline-block;
+        font-size: 2rem;
+        margin-left: 10px;
+        opacity: 0; /* Start hidden */
+        animation: fadeIn 1s ease-in-out forwards; /* Animate to fadeIn */
+      }
+
+      .animated-text span:nth-child(1) {
+        animation-delay: 0s; /* First word shows immediately */
+      }
+
+      .animated-text span:nth-child(2) {
+        animation-delay: 1s; /* Second word shows after 1 second */
+      }
+      .animated-text span:nth-child(3) {
+        animation-delay: 2s; /* Second word shows after 1 second */
+      }
+
+      .large-text { 
+        font-size: 3.5rem; /* Increase the font size */
+      }
+
+      .background-image {
+        background-image: url('/img/background-index.jpeg'); /* Add the path to your background image */
+        background-size: cover; /* Cover the entire container */
+        background-position: center; /* Center the background image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        height:100vh;      
+        
+      }
+
+      
+      

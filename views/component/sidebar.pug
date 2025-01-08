@@ -1,0 +1,125 @@
+.container-fluid
+  .row
+    .col-md-3
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#sidebarContent", aria-controls="sidebarContent", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      .sidebar.collapse.d-flex.flex-column.align-items-center#sidebarContent
+        img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3", style="width: 5rem; height: 5rem; border-radius: 50%; " )
+        h2.text-center Arnav Chaturvedi 
+        .logo-container.d-flex
+          a(href="https://www.instagram.com", target="_blank")
+            img(src="/img/logo/instagram.png", alt="instagram", style="width:35px; height:35px; margin-right: 10px;")
+
+          a(href="https://www.facebook.com", target="_blank")
+            img(src="/img/logo/facebook.png", alt="facebook", style="width:35px; height:35px; margin-right: 10px;")
+
+          a(href="https://www.linkedin.com", target="_blank")
+            img(src="/img/logo/linkedin.png", alt="linkedin", style="width:35px; height:35px;")
+
+        
+        ul.list-group.w-100
+          li.list-group-item: a(href="/") Home
+          li.list-group-item: a(href="/about") About
+          li.list-group-item: a(href="/resume") Resume
+          li.list-group-item: a(href="/service") Services
+          li.list-group-item: a(href="/dropdown") Dropdown
+          li.list-group-item: a(href="/contact") Contact
+
+style.
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 18%; /* Adjust to 33.33% if you prefer */
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 20px;
+  }
+
+  .sidebar img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+
+  .logo-container {
+    width: 100%; /* Ensure full width for proper alignment */
+    display: flex;
+  }
+
+  .logo-container img {
+    margin-left: 1.5rem; /* Add gap between logos */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  .logo-container img:hover {
+    transform: scale(1.2); /* Scale up the image on hover */
+  }
+
+  .sidebar .list-group-item {
+    background-color: black;
+    color: white;
+    border: none;
+    width: 100%;
+    margin-bottom: 3rem; /* Add a gap between the list items */
+    list-style-type: none;
+  }
+
+  .sidebar .list-group-item a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .sidebar .list-group-item a:hover {
+    color: #f8c471;
+  }
+
+  .content {
+    margin-left: 25%; /* Adjust to 33.33% if you prefer */
+    width: 75%; /* Adjust to 66.66% if you prefer */
+    padding: 20px;
+  }
+
+  /* Media query for mobile responsiveness */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: column; /* Change back to column for better mobile layout */
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .content {
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .logo-container img {
+      margin-left: 0.5rem; /* Adjust gap between logos for mobile */
+    }
+
+    .sidebar img {
+      width: 4rem; /* Adjust size for mobile */
+      height: 4rem; /* Adjust size for mobile */
+    }
+
+    .navbar-toggler {
+      display: block; /* Show toggle button on mobile */
+      margin-bottom: 1rem; /* Add space below toggle button */
+    }
+
+    .sidebar {
+      display: none; /* Hide sidebar on mobile initially */
+    }
+
+    .sidebar.show {
+      display: flex; /* Show sidebar when toggled */
+    }
+  }
