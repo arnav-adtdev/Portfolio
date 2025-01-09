@@ -37,12 +37,16 @@ app.get('/resume', (req, res) => {
   res.render('resume', { title: 'RESUME PAGE' });
 });
 
+app.get('/skills', (req, res) => {
+  res.render('skills', { title: 'SKILL PAGE' });
+});
+
 app.get('/service', (req, res) => {
   res.render('service', { title: 'SERVICE PAGE' });
 });
 
-app.get('/dropdown', (req, res) => {
-  res.render('dropdown', { title: 'DROPDOWN PAGE' });
+app.get('/project', (req, res) => {
+  res.render('project', { title: 'PROJECT PAGE' });
 });
 
 app.get('/contact', (req, res) => {

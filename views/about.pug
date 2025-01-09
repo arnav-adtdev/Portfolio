@@ -21,31 +21,43 @@ block content
 
             .row 
               .content-data1.col-md-6 
-                li Birthday : 06 May , 2005
+                li Birthday: 06 May, 2005
                 br
-                li Phone : +91 9696407839
+                li Phone: +91 9696407839
                 br
-                li City : Noida, Uttar Pradesh
+                li City: Noida, Uttar Pradesh
                 br
-                li Age : 20 Year's
-
+                li Age: 20 Years
 
               .content-data2.col-md-6
-                li Degree : Bachelor of Computer Application 
+                li Degree: Bachelor of Computer Application 
                 br
-                li Email : arnavchaturvedi0@gmail.com
+                li Email: arnavchaturvedi0@gmail.com
                 br
-                li Typing Speed : Avg. 25wpm
+                li Typing Speed: Avg. 25wpm
                 br
-                li Experience : 4 Month's
-
+                li Experience: 4 Months
 
             .content-about-last
-              p(style="margin-top: 40px;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio adipisci assumenda officiis quasi dicta itaque, doloribus repellendus fuga quo ullam ab ea rem ut dignissimos qui? Vero, dolor animi?
-
+              p(style="margin-top: 40px;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio adipisci assumenda officiis quasi dicta itaque, doloribus repellendus fuga quo ullam ab ea rem ut dignissimos qui? Vero, dolor animi!
 
     style. 
-      .content-about{
-        margin-top :3rem;
-        font-size : 2rem;
+      .content-about {
+        margin-top: 3rem;
+        font-size: 2rem;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .content-about-top, .content-text, .content-img, .content-data1, .content-data2, .content-about-last {
+        animation: slideIn 1.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @keyframes slideIn {
+        0% { transform: translateX(-50px); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
       }

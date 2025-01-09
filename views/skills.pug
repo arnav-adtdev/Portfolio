@@ -1,0 +1,58 @@
+extends ./layout  
+
+block content 
+  .container-fluid
+    .row
+      .col-md-3
+        include ./component/sidebar
+      .col-md-9
+        .content-skill
+          p.large-text 
+            b Skill's
+
+        .content-skill-para 
+          p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore quo maiores architecto quasi repudiandae, fuga iste assumenda laudantium voluptatibus suscipit perspiciatis eius doloremque temporibus odio ab, voluptatum officia? Eaque, excepturi!
+
+        .content-skill-data 
+          .skill-bar 
+            .skill-bar-inner(style="width: 90%") HTML 90%
+          .skill-bar 
+            .skill-bar-inner(style="width: 70%") CSS 70%
+          .skill-bar 
+            .skill-bar-inner(style="width: 50%") JavaScript 50%
+          .skill-bar 
+            .skill-bar-inner(style="width: 50%") Node.js 50%
+          .skill-bar 
+            .skill-bar-inner(style="width: 80%") Mongoose 80%
+          .skill-bar 
+            .skill-bar-inner(style="width: 80%") GitHub 80%
+
+
+        style. 
+            .content-skill {
+                margin-top: 3rem;
+                font-size: 2rem;
+            }
+            .skill-bar {
+                position: relative;
+                background: #f0f0f0;
+                border-radius: 25px;
+                margin: 1rem 0;
+                padding: 5px;
+                width: 100%;
+            }
+            .skill-bar-inner {
+                display: block;
+                height: 25px;
+                border-radius: 20px;
+                background: #007bff;
+                text-align: center;
+                color: #fff;
+                line-height: 25px;
+                font-weight: bold;
+                animation: loadSkill 2s ease-in-out;
+            }
+            @keyframes loadSkill {
+                0% { width: 0%; }
+                100% { width: 100%; }
+            }
