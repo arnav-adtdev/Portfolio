@@ -4,21 +4,21 @@ block content
     .row
       .col-md-3
         include ./component/sidebar
-      .col-9.background-image
+      .col-md-9.col-12.background-image
         .content-index
-          p.large-text Arnav Chaturvedi
-          p.animated-text 
+          p.large-text.text-md-left.text-center Arnav Chaturvedi
+          p.animated-text.text-md-left.text-center 
             span I'm
             span Web
             span Developer
-          div.container 
+          div.container.text-md-left.text-center
             a(href="/contact")
-              button.btn.btn-primary(type="button" style="height:50px" class="animated-button")
+              button.btn.btn-primary(type="button" style="height:50px" class="animated-button my-2")
                 img(src="/img/sidebar-logo/contact.png", alt="Contact Icon", class="img-fluid mr-2" style="width:30px")
                 | Contact Me
   
             a(href="/Arnav Resume.pdf", download) 
-              button.btn.btn-success(type="button" style="height:50px" class="animated-button") 
+              button.btn.btn-success(type="button" style="height:50px" class="animated-button my-2") 
                 img(src="/img/sidebar-logo/resume.png", alt="resume-logo", style="width:30px")
                 | Download Resume
 
@@ -57,9 +57,10 @@ block content
         }
       }
 
-      .content-index{
+      .content-index {
         margin-top: 25rem;
-        color : black;
+        margin-right: 39rem;
+        color: black;
       }
       .animated-text span {
         display: inline-block;
@@ -123,4 +124,18 @@ block content
 
       .animated-button:hover:after {
         animation: slideInRight 0.5s forwards;
+      }
+
+      @media (max-width: 768px) {
+        .content-index {
+          margin-top: 25rem;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .large-text {
+          font-size: 2.5rem; /* Adjust font size for smaller screens */
+        }
+        .animated-text span {
+          font-size: 1.5rem; /* Adjust font size for smaller screens */
+        }
       }
