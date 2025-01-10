@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define routes
 app.get('/', (req, res) => {
-  res.render('index', { title: 'HOME PAGE' });
+  res.render('index', { title: 'ARNAV PORTFOLIO' });
 });
 
 app.get('/about', (req, res) => {
