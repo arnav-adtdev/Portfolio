@@ -1,0 +1,62 @@
+
+.container-fluid
+    .row
+      .col-md-3
+        //- include ./component/sidebar
+      .col-md-9
+        .content-about
+          p.large-text 
+            b About
+          
+        .content-about-top 
+          p Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero placeat dolorum sit magni similique autem minima, impedit, iure molestias totam inventore magnam, quibusdam a cumque quo? Labore nostrum eligendi commodi!
+
+        .row
+          .content-img.col-md-4.mt-4
+            img(src="/img/arnavphoto.jpg", alt="arnav-photo", style="height: 30rem;")
+          .content-text.col-md-8.mt-4
+            h2 Web Developer
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore sapiente praesentium facere illo corporis ex non repellat iure, accusamus, ad a molestias atque repellendus quos similique quibusdam eum sit?
+
+            .row 
+              .content-data1.col-md-6 
+                li Birthday: 06 May, 2005
+                br
+                li Phone: +91 9696407839
+                br
+                li City: Noida, Uttar Pradesh
+                br
+                li Age: 20 Years
+
+              .content-data2.col-md-6
+                li Degree: Bachelor of Computer Application 
+                br
+                li Email: arnavchaturvedi0@gmail.com
+                br
+                li Typing Speed: Avg. 25wpm
+                br
+                li Experience: 4 Months
+
+            .content-about-last
+              p(style="margin-top: 40px;") Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente distinctio adipisci assumenda officiis quasi dicta itaque, doloribus repellendus fuga quo ullam ab ea rem ut dignissimos qui? Vero, dolor animi!
+
+    style. 
+      .content-about {
+        margin-top: 3rem;
+        font-size: 2rem;
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      .content-about-top, .content-text, .content-img, .content-data1, .content-data2, .content-about-last {
+        animation: slideIn 1.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @keyframes slideIn {
+        0% { transform: translateX(-50px); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+      }

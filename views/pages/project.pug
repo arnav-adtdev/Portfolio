@@ -1,0 +1,102 @@
+
+.container-fluid
+    .row
+      .col-md-3
+        //- include ./component/sidebar
+      .col-md-9
+        .content-project
+          p.large-text Project's
+
+          .row
+            .col-lg-4.col-md-6.col-sm-12.mt-3
+              .project-card.shadow-sm.mb-5
+                .project-card-inner
+                  .project-card-front
+                    img(src="/img/projects/nodemailer.avif", alt="project1", class="img-fluid mb-3")
+                  .project-card-back
+                    h4 NODEMAILER
+                    p(style="font-size:1.5rem") Nodemailer is a module for Node.js applications that allows easy email sending. 
+                    a.btn.btn-primary(href="https://service-aasakyadigitals.vercel.app/") View Project
+          
+            .col-lg-4.col-md-6.col-sm-12.mt-3
+              .project-card.shadow-sm.mb-5
+                .project-card-inner
+                  .project-card-front
+                    img(src="/img/projects/queryform.avif", alt="project2", class="img-fluid mb-3")
+                  .project-card-back
+                    h4 QUERY FORM
+                    p(style="font-size:1.5rem") Users can enter filter options into a form and click a button to run the query. The query form results are only visible to the user who ran the form.
+                    a.btn.btn-primary(href="https://query-aasakyadigitals.vercel.app/") View Project
+
+            .col-lg-4.col-md-6.col-sm-12.mt-3
+              .project-card.shadow-sm.mb-5
+                .project-card-inner
+                  .project-card-front
+                    img(src="/img/projects/push notification.avif", alt="project3", class="img-fluid mb-3")
+                  .project-card-back
+                    h4 PUSH NOTIFICATION 
+                    p(style="font-size:1.5rem") A push notification is a clickable message that appears on a user's device to convey important information or alerts.
+                    a.btn.btn-primary(href="#") View Project
+
+    style. 
+      .content-project {
+          margin-top: 3rem;
+          font-size: 2rem;
+      }
+
+      .project-card {
+          perspective: 1000px; /* For 3D effect */
+          animation: moveInRight 1s forwards; /* Animation for entry effect */
+          opacity: 0; /* Initial state for fade-in */
+      }
+
+      .project-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          transition: transform 0.6s;
+      }
+
+      .project-card:hover .project-card-inner {
+          transform: rotateY(180deg);
+      }
+
+      .project-card-front, .project-card-back {
+          position: absolute;
+          width: 100%;
+          backface-visibility: hidden;
+      }
+
+      .project-card-front {
+          z-index: 2;
+      }
+
+      .project-card-back {
+          transform: rotateY(180deg);
+          background: #fff; 
+          padding: 20px; /* Adjust padding for content alignment */
+      }
+
+      .img-fluid {
+          max-width: 100%;
+          height: auto;
+      }
+
+      @keyframes moveInRight {
+          0% {
+              transform: translateX(100%);
+              opacity: 0;
+          }
+          100% {
+              transform: translateX(0);
+              opacity: 1;
+          }
+      }
+
+      /* Media queries for responsive design */
+      @media (max-width: 576px) {
+          .project-card {
+              margin-top: 10rem; /* Additional spacing for smaller screens */
+          }
+      }

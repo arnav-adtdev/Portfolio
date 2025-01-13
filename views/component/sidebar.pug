@@ -1,8 +1,10 @@
 .container-fluid
   .row
     .col-md-3
-      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#sidebarContent", aria-controls="sidebarContent", aria-expanded="false", aria-label="Toggle navigation")
-        span.navbar-toggler-icon
+      <button class="navbar-toggler" type="button" aria-controls="sidebarContent" aria-expanded="false" aria-label="Toggle navigation"> 
+        <span class="navbar-toggler-icon"></span> 
+      </button>
+
       .sidebar.collapse.d-flex.flex-column.align-items-center#sidebarContent
         img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3", style="width: 5rem; height: 5rem; border-radius: 50%;")
         h2.text-center Arnav Chaturvedi 
@@ -145,21 +147,26 @@ style.
     }
 
     .sidebar.show {
-      display: flex;
+      display: block ;
     }
   }
 
 script.
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.querySelector('.navbar-toggler-icon');
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.querySelector('.navbar-toggler');
     const sidebar = document.getElementById('sidebarContent');
     const closeButton = document.querySelector('.close-btn');
 
-    toggleButton.addEventListener('click', function () {
-      sidebar.classList.toggle('show');
-    });
+    if (toggleButton && sidebar && closeButton) {
+        toggleButton.addEventListener('click', function() {
+            sidebar.classList.toggle('show');
+        });
 
-    closeButton.addEventListener('click', function () {
-      sidebar.classList.remove('show');
-    });
+        closeButton.addEventListener('click', function() {
+            sidebar.classList.remove('show');
+        });
+    } else {
+        console.error('One or more elements are not found');
+    }
   });
+
