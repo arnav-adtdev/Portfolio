@@ -93,6 +93,80 @@ block content
                   p.mb-0
                     | &copy; Powered by Arnav Chaturvedi
 
+    script. 
+      
+      // JavaScript to display toast notification
+      document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Gather form data
+        const formData = new FormData(form);
+
+        // Log form data to console for debugging
+        formData.forEach((value, key) => {
+          console.log(`${key}: ${value}`);
+        });
+
+        // Client-side validation
+        const requiredFields = ['name', 'email', 'subject', 'phone', 'message'];
+        for (const field of requiredFields) {
+          if (!formData.get(field)) {
+            showToast(`Please fill out the ${field} field`);
+            return;
+          }
+        }
+
+        // Perform form submission logic here using Fetch API
+        fetch(form.action, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json()) // Parse the response as JSON
+        .then(data => {
+          if (data.success) {
+            Toastify({
+              text: data.message,
+              duration: 3000,
+              close: true,
+              gravity: "bottom",
+              position: "center",
+              backgroundColor: "#28a745"
+            }).showToast();
+            form.reset(); // Optionally reset the form after successful submission
+          } else {
+            showToast(data.message);
+          }
+        })
+        .catch(error => {
+          Toastify({
+            text: "An error occurred",
+            duration: 3000,
+            close: true,
+            gravity: "bottom",
+            position: "center",
+            backgroundColor: "#dc3545"
+          }).showToast();
+          console.error('Error:', error);
+        });
+      });
+
+      function showToast(message) {
+        Toastify({
+          text: message,
+          duration: 3000,
+          close: true,
+          gravity: "bottom",
+          position: "center",
+          backgroundColor: "#333"
+        }).showToast();
+      }
+    });
+
+
+
+
     style. 
         .footer-center {
         height: 100px; /* Adjust the height as needed */
