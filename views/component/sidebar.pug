@@ -1,57 +1,58 @@
 .container-fluid
   .row
     .col-md-3
-      <button class="navbar-toggler" type="button" aria-controls="sidebarContent" aria-expanded="false" aria-label="Toggle navigation"> 
-        <span class="navbar-toggler-icon"></span> 
-      </button>
+      button.navbar-toggler(type="button", aria-label="Toggle sidebar") ☰ 
+        span.navbar-toggler-icon
 
-      .sidebar.collapse.d-flex.flex-column.align-items-center#sidebarContent
-        img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3", style="width: 5rem; height: 5rem; border-radius: 50%;")
+    .col-md-9
+      .sidebar.d-flex.flex-column.align-items-center#sidebarContent
+        //- button.close-btn(type="button" ,aria-label="Close navigation") ×
+        img(src="/img/arnavphoto.jpg" alt="arnav-photo" class="img-fluid rounded-circle mb-3" style="width: 5rem; height: 5rem; border-radius: 50%;")
+
         h2.text-center Arnav Chaturvedi 
         .logo-container
-          a(href="https://www.instagram.com/arnav.chaturvedi001/", target="_blank")
-            img(src="/img/logo/instagram.png", alt="instagram", style="width:35px; height:35px; margin-right: 10px;")
-          a(href="https://www.facebook.com/arnav.chaturvedi.184", target="_blank")
-            img(src="/img/logo/facebook.png", alt="facebook", style="width:35px; height:35px; margin-right: 10px;")
-          a(href="https://www.linkedin.com/in/arnav-chaturvedi-192264345/", target="_blank")
-            img(src="/img/logo/linkedin.png", alt="linkedin", style="width:35px; height:35px;")
+          a(href="https://www.instagram.com/arnav.chaturvedi001/" target="_blank")
+            img(src="/img/logo/instagram.png" alt="instagram" style="width:35px; height:35px; margin-right: 10px;")
+          a(href="https://www.facebook.com/arnav.chaturvedi.184" target="_blank")
+            img(src="/img/logo/facebook.png" alt="facebook" style="width:35px; height:35px; margin-right: 10px;")
+          a(href="https://www.linkedin.com/in/arnav-chaturvedi-192264345/" target="_blank")
+            img(src="/img/logo/linkedin.png" alt="linkedin" style="width:35px; height:35px;")
         ul.list-group.w-100
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/buy-a-house.png", alt="home-logo", style="width:35px; height:35px;")
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/buy-a-house.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
               a(href="/") Home
 
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/about.png", alt="home-logo", style="width:35px; height:35px;")
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/about.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
               a(href="/about") About 
-          
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/resume.png", alt="home-logo", style="width:35px; height:35px;")
+
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/resume.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
               a(href="/resume") Resume
-          
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/contact.png", alt="home-logo", style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/skills") Skill's
 
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/service.png", alt="home-logo", style="width:35px; height:35px;")
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
+            li.list-group-item.mb-0
+              a(href="/skills") Skills
+
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/service.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
               a(href="/service") Service
 
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/dropdown.png", alt="home-logo", style="width:35px; height:35px;")
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/dropdown.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
-              a(href="/project") Project's
+              a(href="/project") Projects
 
-          div.d-flex.mb-3
-            img(src="/img/sidebar-logo/contact.png", alt="home-logo", style="width:35px; height:35px;")
+          .d-flex.mb-3
+            img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
             li.list-group-item.mb-0
               a(href="/contact") Contact
 
-          
 
 style.
   .sidebar {
@@ -152,21 +153,23 @@ style.
   }
 
 script.
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggleButton = document.querySelector('.navbar-toggler');
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.querySelector('.navbar-toggler'); // Match the corrected class in HTML
     const sidebar = document.getElementById('sidebarContent');
     const closeButton = document.querySelector('.close-btn');
 
     if (toggleButton && sidebar && closeButton) {
-        toggleButton.addEventListener('click', function() {
-            sidebar.classList.toggle('show');
-        });
+      // Toggle the sidebar on click
+      toggleButton.addEventListener('click', function () {
+        sidebar.classList.toggle('show');
+      });
 
-        closeButton.addEventListener('click', function() {
-            sidebar.classList.remove('show');
-        });
-    } else {
-        console.error('One or more elements are not found');
+      // Close the sidebar on close button click
+      closeButton.addEventListener('click', function () {
+        sidebar.classList.remove('show');
+      });
     }
   });
+
+
 
