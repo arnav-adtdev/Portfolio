@@ -1,0 +1,136 @@
+
+    /* General Styling */
+    .large-text {
+        margin-top: 2rem;
+        font-size: 2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Form Container Enhancements */
+    .form-container {
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Form Field Styling */
+    .form-group label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .form-group .form-control {
+        border-radius: 0.5rem;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group .form-control:focus {
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+        border-color: #007bff;
+    }
+
+    /* Button Styling */
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.8rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    /* Contact Page Animation */
+    .contact-info {
+        animation: slideInLeft 1.5s ease-in-out;
+    }
+
+    .contact-form {
+        animation: slideInRight 1.5s ease-in-out;
+    }
+
+    /* Keyframe Animations */
+    @keyframes slideInLeft {
+        0% { transform: translateX(-100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+        0% { transform: translateX(100%); opacity: 0; }
+        100% { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Keep existing styles unchanged for larger screens */
+
+    /* Responsive Mobile Adjustments */
+    @media (max-width: 768px) {
+        .large-text {
+            font-size: 1.6rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .form-container {
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 90%;
+            margin: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group .form-control {
+            font-size: 0.9rem;
+            padding: 10px;
+            border-radius: 0.4rem;
+        }
+
+        .btn-primary {
+            font-size: 1rem;
+            padding: 0.7rem;
+            width: 100%;
+        }
+
+        .form-floating label {
+            font-size: 0.9rem;
+            left: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .large-text {
+            font-size: 1.4rem;
+        }
+
+        .form-container {
+            padding: 1rem;
+            width: 100%;
+            max-width: 95%;
+        }
+
+        .form-group .form-control {
+            font-size: 0.85rem;
+            padding: 8px;
+        }
+
+        .btn-primary {
+            font-size: 0.9rem;
+            padding: 0.6rem;
+            width: 100%;
+        }
+
+        .form-floating label {
+            font-size: 0.85rem;
+            left: 8px;
+        }
+    }
