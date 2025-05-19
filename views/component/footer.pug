@@ -1,18 +1,38 @@
-//- footer.bg-light.py-3.footer-center
-//-   .container
-//-     .row.justify-content-center
-//-       .col-md-12.text-center
-//-         p.mb-0
-//-           | &copy; Powered by Arnav Chaturvedi
+footer.bg-light.py-3.footer-center
+  .container
+    .row.justify-content-center
+      .col-md-12.text-center
+        p.mb-0
+          | &copy; Powered by Arnav Chaturvedi
 
-//- style. 
-//-     .footer-center {
-//-     height: 100px; /* Adjust the height as needed */
-//-     text-align: center;
-//-     }
 
-//-     footer p {
-//-     margin-bottom: 0;
-//-     margin-left: auto; 
-//-     margin-right: auto;
-//-     }
+style. 
+    .footer-center {
+        position: relative; /* Keeps footer at the bottom */
+        bottom: 0; /* Positions footer at the bottom */
+        left: 0;
+        width: 100%; /* Ensures full width */
+        height: 80px; /* Adjusted height */
+        display: flex;
+        justify-content: center; /* Centers content */
+        align-items: center; /* Aligns items vertically */
+        background-color: #f8f9fa; /* Light background */
+    }
+
+    /* Ensure text stays centered */
+    footer p {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Responsive Fix for Mobile */
+    @media (max-width: 768px) {
+        .footer-center {
+            height: 60px; /* Reduce footer height on smaller screens */
+        }
+        
+        footer p {
+            font-size: 1rem; /* Reduce text size for better mobile view */
+        }
+    }

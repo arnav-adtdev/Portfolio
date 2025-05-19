@@ -53,209 +53,283 @@ block content
               .col-md-8.contact-form.wow.fadeInRight(data-wow-delay="0.1s") 
                 h6.text-secondary.text-uppercase Get In Touch
                 h1.mb-4 Contact For Any Query
-                p.mb-4 For any inquiries, feel free to reach out to us. I'm here to assist you.
+                p.mb-4 Feel free to reach out. I'm here to assist you.
+                
                 .bg-light.p-4.rounded.shadow-lg
-                  form#contactForm(action="/submit-form" method="POST")
-                    .row.g-3
-                      .col-md-6 
-                        .form-floating
-                          label(for="name") Name 
-                            span.text-danger *
-                          input.form-control(type="text", id="name", name="name", placeholder="What's Your name ?", required)
-                      .col-md-6 
-                        .form-floating
-                          label(for="email") Email 
-                            span.text-danger *
-                          input.form-control(type="email", id="email", name="email", placeholder="Enter Valid Email", required)
-                      .col-md-6 
-                        .form-floating
-                          label(for="subject") Subject 
-                            span.text-danger *
-                          input.form-control(type="text", id="subject", name="subject", placeholder="Enter Subject here ...", required)
-                      .col-md-6 
-                        .form-floating
-                          label(for="phone") Phone Number 
-                            span.text-danger *
-                          input.form-control(type="tel", id="phone", name="phone", placeholder="Enter Valid 10 Digit's Number", required)
-                      .col-12
-                        .form-floating
-                          label(for="message") Message 
-                            span.text-danger *
-                          textarea.form-control(placeholder="Leave a message here", id="message", name="message", style="height: 150px", required)
-                          br
-                      .col-12
-                        button.btn.btn-primary.w-100.py-3(type="submit") Send Message
-          
+                    form#contactForm(action="/submit-form" method="POST")
+                        .row.g-3
+                            .col-md-6 
+                                .form-floating
+                                    label(for="name") Name *
+                                    input.form-control(type="text", id="name", name="name", placeholder="Your Name", required)
+                            .col-md-6 
+                                .form-floating
+                                    label(for="email") Email *
+                                    input.form-control(type="email", id="email", name="email", placeholder="Enter Email", required)
+                            .col-md-6 
+                                .form-floating
+                                    label(for="subject") Subject *
+                                    input.form-control(type="text", id="subject", name="subject", placeholder="Enter Subject", required)
+                            .col-md-6 
+                                .form-floating
+                                    label(for="phone") Phone Number *
+                                    input.form-control(type="tel", id="phone", name="phone", placeholder="Enter Phone Number", required)
+                            .col-12
+                                .form-floating
+                                    label(for="message") Message *
+                                    textarea.form-control(placeholder="Leave a message", id="message", name="message", style="height: 150px;", required)
+                                    br
+                            .col-12
+                                button.btn.btn-primary.w-100.py-3(type="submit") Send Message
 
-          footer.bg-light.py-3.footer-center
-            .container
-              .row.justify-content-center
-                .col-md-12.text-center
-                  p.mb-0
-                    | &copy; Powered by Arnav Chaturvedi
+
+  include ./component/footer          
+
+    //- script. 
+    //-   document.addEventListener('DOMContentLoaded', function() {
+    //-     const form = document.getElementById('contactForm');
+        
+    //-     form.addEventListener('submit', function(event) {
+    //-       event.preventDefault();
+
+    //-       // Gather form data
+    //-       const formData = new FormData(form);
+    //-       const formObject = Object.fromEntries(formData.entries());
+
+    //-       // Log form data to console for debugging
+    //-       console.log("Form Data:", formObject);
+
+    //-       // Client-side validation
+    //-       const requiredFields = ['name', 'email', 'subject', 'phone', 'message'];
+    //-       for (const field of requiredFields) {
+    //-         if (!formObject[field]?.trim()) {
+    //-           showToast(`Please fill out the ${field} field`);
+    //-           return;
+    //-         }
+    //-       }
+
+    //-       // Perform form submission logic here using Fetch API
+    //-       fetch(form.action, {
+    //-         method: 'POST',
+    //-         body: formData
+    //-       })
+    //-       .then(response => response.json()) // Parse the response as JSON
+    //-       .then(data => {
+    //-         if (data.success) {
+    //-           Toastify({
+    //-             text: data.message,
+    //-             duration: 3000,
+    //-             close: true,
+    //-             gravity: "bottom",
+    //-             position: "center",
+    //-             backgroundColor: "#28a745"
+    //-           }).showToast();
+    //-           form.reset(); // Optionally reset the form after successful submission
+    //-         } else {
+    //-           showToast(data.message);
+    //-         }
+    //-       })
+    //-       .catch(error => {
+    //-         Toastify({
+    //-           text: "An error occurred",
+    //-           duration: 3000,
+    //-           close: true,
+    //-           gravity: "bottom",
+    //-           position: "center",
+    //-           backgroundColor: "#dc3545"
+    //-         }).showToast();
+    //-         console.error('Error:', error);
+    //-       });
+    //-     });
+
+    //-     function showToast(message) {
+    //-       Toastify({
+    //-         text: message,
+    //-         duration: 3000,
+    //-         close: true,
+    //-         gravity: "top",
+    //-         position: "center",
+    //-         backgroundColor: "#333"
+    //-       }).showToast();
+    //-     }
+    //-   });
 
     script. 
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('contactForm');
-        
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contactForm");
 
-          // Gather form data
-          const formData = new FormData(form);
-          const formObject = Object.fromEntries(formData.entries());
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault(); // Prevent default form submission
 
-          // Log form data to console for debugging
-          console.log("Form Data:", formObject);
+            const formData = new FormData(form);
+            const formObject = Object.fromEntries(formData.entries());
 
-          // Client-side validation
-          const requiredFields = ['name', 'email', 'subject', 'phone', 'message'];
-          for (const field of requiredFields) {
-            if (!formObject[field]?.trim()) {
-              showToast(`Please fill out the ${field} field`);
-              return;
+            // Client-side validation
+            const requiredFields = ["name", "email", "subject", "phone", "message"];
+            for (const field of requiredFields) {
+                if (!formObject[field]?.trim()) {
+                    showToast(`Please fill out the ${field} field`, "error");
+                    return;
+                }
             }
-          }
 
-          // Perform form submission logic here using Fetch API
-          fetch(form.action, {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.json()) // Parse the response as JSON
-          .then(data => {
-            if (data.success) {
-              Toastify({
-                text: data.message,
-                duration: 3000,
-                close: true,
-                gravity: "bottom",
-                position: "center",
-                backgroundColor: "#28a745"
-              }).showToast();
-              form.reset(); // Optionally reset the form after successful submission
-            } else {
-              showToast(data.message);
+            // Send form data using Fetch API
+            try {
+                const response = await fetch(form.action, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formObject),
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    showToast(data.message, "success");
+                    form.reset(); // Clear form after successful submission
+                } else {
+                    showToast(data.message, "error");
+                }
+            } catch (error) {
+                console.error("Form submission error:", error);
+                showToast("An error occurred. Please try again.", "error");
             }
-          })
-          .catch(error => {
-            Toastify({
-              text: "An error occurred",
-              duration: 3000,
-              close: true,
-              gravity: "bottom",
-              position: "center",
-              backgroundColor: "#dc3545"
-            }).showToast();
-            console.error('Error:', error);
-          });
         });
 
-        function showToast(message) {
-          Toastify({
-            text: message,
-            duration: 3000,
-            close: true,
-            gravity: "top",
-            position: "center",
-            backgroundColor: "#333"
-          }).showToast();
+        // Toast notification function
+        function showToast(message, type) {
+            Toastify({
+                text: message,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                backgroundColor: type === "success" ? "#28a745" : "#dc3545",
+            }).showToast();
         }
       });
 
-
-
-    style. 
-        .footer-center {
-        height: 100px; /* Adjust the height as needed */
-        text-align: center;
-        }
-
-        footer p {
-        margin-bottom: 0;
-        margin-left: auto; 
-        margin-right: auto;
-        }
-
-    style.
-      .large-text {
-        margin-top :3rem;
-        font-size : 2rem;
-        
-      }
-
-      .form-container {
-       
-        padding: 3rem; /* Increased padding */
-        border-radius: 0.5rem;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-      }
-
-      .form-group label {
+  style. 
+    /* General Styling */
+    .large-text {
+        margin-top: 2rem;
+        font-size: 2rem;
         font-weight: bold;
-      }
+        text-align: center;
+    }
 
-      .form-group .form-control {
-        border-radius: 0.25rem;
-      }
+    /* Form Container Enhancements */
+    .form-container {
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease-in-out;
+    }
 
-      .form-group .form-control:focus {
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Form Field Styling */
+    .form-group label {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    .form-group .form-control {
+        border-radius: 0.5rem;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .form-group .form-control:focus {
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
         border-color: #007bff;
-      }
+    }
 
-      .btn-primary {
+    /* Button Styling */
+    .btn-primary {
         background-color: #007bff;
         border: none;
-        border-radius: 0.25rem;
-        padding: 0.75rem;
-        font-size: 1rem;
+        border-radius: 0.5rem;
+        padding: 0.8rem;
+        font-size: 1.1rem;
         font-weight: bold;
-        transition: background-color 0.3s ease;
-      }
+        transition: background-color 0.3s ease-in-out, transform 0.2s;
+    }
 
-      .btn-primary:hover {
+    .btn-primary:hover {
         background-color: #0056b3;
-      }
+        transform: scale(1.05);
+    }
 
-      @media (max-width: 768px) {
-        .container.contact-page {
-          margin-left: 0;
-        }
-
-        .large-text {
-          margin-left: 0;
-          text-align: center;
-        }
-
-        .bg-light.p-4.rounded.shadow-lg {
-          padding: 1.5rem;
-        }
-
-        .position-relative.h-100 {
-          height: auto;
-        }
-
-        img.position-absolute.w-100.h-100 {
-          height: auto;
-          position: relative;
-        }
-      }
-
-      .contact-info {
+    /* Contact Page Animation */
+    .contact-info {
         animation: slideInLeft 1.5s ease-in-out;
-      }
+    }
 
-      .contact-form {
+    .contact-form {
         animation: slideInRight 1.5s ease-in-out;
-      }
+    }
 
-      @keyframes slideInLeft {
+    /* Keyframe Animations */
+    @keyframes slideInLeft {
         0% { transform: translateX(-100%); opacity: 0; }
         100% { transform: translateX(0); opacity: 1; }
-      }
+    }
 
-      @keyframes slideInRight {
+    @keyframes slideInRight {
         0% { transform: translateX(100%); opacity: 0; }
         100% { transform: translateX(0); opacity: 1; }
-      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .large-text {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-container {
+            padding: 1.5rem;
+        }
+
+        .form-group .form-control {
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            font-size: 1rem;
+            padding: 0.6rem;
+        }
+    }
+
+
+    /* Floating Label Effect */
+    .form-floating {
+        position: relative;
+    }
+
+    .form-floating label {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        transform: translateY(-50%);
+        transition: 0.3s ease-in-out;
+        color: #666;
+        font-size: 1rem;
+    }
+
+    .form-floating input,
+    .form-floating textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .form-floating input:focus + label,
+    .form-floating textarea:focus + label,
+    .form-floating input:not(:placeholder-shown) + label,
+    .form-floating textarea:not(:placeholder-shown) + label {
+        top: 10px;
+        font-size: 0.8rem;
+        color: #007bff;
+    }
