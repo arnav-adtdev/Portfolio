@@ -41,14 +41,16 @@ block content
                     a.btn.btn-primary(href="#") View Project
 
     style. 
+      /* General styling for mobile */
       .content-project {
           margin-top: 3rem;
           font-size: 2rem;
       }
 
+      /* Project card styles */
       .project-card {
-          perspective: 1000px; /* For 3D effect */
-          animation: moveInRight 1s forwards; /* Animation for entry effect */
+          perspective: 1000px; /* 3D flip effect */
+          animation: moveInRight 1s forwards; /* Entry animation */
           opacity: 0; /* Initial state for fade-in */
       }
 
@@ -64,6 +66,7 @@ block content
           transform: rotateY(180deg);
       }
 
+      /* Front and back of project cards */
       .project-card-front, .project-card-back {
           position: absolute;
           width: 100%;
@@ -77,14 +80,16 @@ block content
       .project-card-back {
           transform: rotateY(180deg);
           background: #fff; 
-          padding: 20px; /* Adjust padding for content alignment */
+          padding: 20px;
       }
 
+      /* Image adjustments */
       .img-fluid {
           max-width: 100%;
           height: auto;
       }
 
+      /* Entry animation */
       @keyframes moveInRight {
           0% {
               transform: translateX(100%);
@@ -96,9 +101,38 @@ block content
           }
       }
 
-      /* Media queries for responsive design */
-      @media (max-width: 576px) {
+      /* **Mobile View Enhancements with Media Queries** */
+      @media (max-width: 768px) {
+          .col-md-9 {
+              margin-left: 0; /* Remove sidebar margin */
+              width: 100%; /* Full width */
+          }
+
           .project-card {
-              margin-top: 10rem; /* Additional spacing for smaller screens */
+              margin-top: 2rem; /* Adjust spacing */
+          }
+
+          .project-card-back p {
+              font-size: 1.2rem; /* Reduce text size for better readability */
+          }
+
+          .btn-primary {
+              font-size: 1rem; /* Reduce button size */
+              padding: 8px 12px;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .content-project {
+              font-size: 1.5rem; /* Adjust heading size */
+              text-align: center;
+          }
+
+          .project-card {
+              margin-top: 1rem;
+          }
+
+          .project-card-inner {
+              transition: transform 0.4s ease-in-out;
           }
       }
