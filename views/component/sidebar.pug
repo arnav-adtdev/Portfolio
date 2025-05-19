@@ -1,175 +1,199 @@
-.container-fluid
-  .row
-    .col-md-3
-      button.navbar-toggler(type="button", aria-label="Toggle sidebar") ☰ 
-        span.navbar-toggler-icon
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    
+    title Sidebar with Close Button
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    .col-md-9
-      .sidebar.d-flex.flex-column.align-items-center#sidebarContent
-        //- button.close-btn(type="button" ,aria-label="Close navigation") ×
-        img(src="/img/arnavphoto.jpg" alt="arnav-photo" class="img-fluid rounded-circle mb-3" style="width: 5rem; height: 5rem; border-radius: 50%;")
+    style.
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
 
-        h2.text-center Arnav Chaturvedi 
-        .logo-container
-          a(href="https://www.instagram.com/arnav.chaturvedi001/" target="_blank")
-            img(src="/img/logo/instagram.png" alt="instagram" style="width:35px; height:35px; margin-right: 10px;")
-          a(href="https://www.facebook.com/arnav.chaturvedi.184" target="_blank")
-            img(src="/img/logo/facebook.png" alt="facebook" style="width:35px; height:35px; margin-right: 10px;")
-          a(href="https://www.linkedin.com/in/arnav-chaturvedi-192264345/" target="_blank")
-            img(src="/img/logo/linkedin.png" alt="linkedin" style="width:35px; height:35px;")
-        ul.list-group.w-100
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/buy-a-house.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/") Home
+      .container-fluid {
+        display: flex;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/about.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/about") About 
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 25%;
+        background-color: black;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 20px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/resume.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/resume") Resume
+      .navbar-toggler-icon {
+        display: none;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/skills") Skills
+      .close-btn {
+        display: none;
+        align-self: flex-end;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/service.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/service") Service
+      .sidebar img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/dropdown.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/project") Projects
+      .logo-container {
+        display: flex;
+        gap: 10px;
+      }
 
-          .d-flex.mb-3
-            img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
-            li.list-group-item.mb-0
-              a(href="/contact") Contact
+      .logo-container img {
+        width: 35px;
+        height: 35px;
+        transition: transform 0.3s ease;
+      }
+
+      .logo-container img:hover {
+        transform: scale(1.2);
+      }
+
+      .sidebar .list-group-item {
+        background-color: black;
+        color: white;
+        border: none;
+        width: 100%;
+        list-style-type: none;
+        padding: 10px 0;
+      }
+
+      .sidebar .list-group-item a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .sidebar .list-group-item a:hover {
+        color: #f8c471;
+      }
+
+      .content {
+        margin-left: 18%;
+        width: 82%;
+        padding: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-toggler-icon {
+          display: block;
+          background-color: white;
+          padding: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .sidebar {
+          left: -100%;
+          width: 80%;
+        }
+
+        .sidebar.show {
+          left: 0;
+        }
+
+        .close-btn {
+          display: block;
+        }
+
+        .content {
+          margin-left: 0;
+          width: 100%;
+        }
+      }
+
+  body
+    .container-fluid
+      .row
+        .col-md-3
+          button.navbar-toggler-icon(type="button", aria-label="Toggle sidebar") 
+           span.navbar-toggler-icon
+        .col-md-9
+          .sidebar.d-flex.flex-column.align-items-center#sidebarContent
+            button.close-btn(type="button", aria-label="Close sidebar") ×
+            img(src="/img/arnavphoto.jpg", alt="arnav-photo", class="img-fluid rounded-circle mb-3")
+            h2.text-center Arnav Chaturvedi
+            .logo-container
+              a(href="https://www.instagram.com", target="_blank")
+                img(src="/img/logo/instagram.png", alt="Instagram")
+              a(href="https://www.facebook.com", target="_blank")
+                img(src="/img/logo/facebook.png", alt="Facebook")
+              a(href="https://www.linkedin.com", target="_blank")
+                img(src="/img/logo/linkedin.png", alt="LinkedIn")
+            ul.list-group.w-100
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/buy-a-house.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/") Home
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/about.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/about") About 
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/resume.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/resume") Resume
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/skills") Skills
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/service.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/service") Service
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/dropdown.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/project") Projects
+
+              .d-flex.mb-3
+                img(src="/img/sidebar-logo/contact.png" alt="home-logo" style="width:35px; height:35px;")
+                li.list-group-item.mb-0
+                  a(href="/contact") Contact
 
 
-style.
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 25%;
-    background-color: black;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 20px;
-  }
-
-  .sidebar img {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-  }
-
-  .logo-container {
-    width: 100%;
-    display: flex;
-  }
-
-  .logo-container img {
-    margin-left: 1.5rem;
-    transition: transform 0.3s ease;
-  }
-
-  .logo-container img:hover {
-    transform: scale(1.2);
-  }
-
-  .sidebar .list-group-item {
-    background-color: black;
-    color: white;
-    border: none;
-    width: 100%;
-    margin-bottom: 2rem;
-    list-style-type: none;
-  }
-
-  .sidebar .list-group-item a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .sidebar .list-group-item a:hover {
-    color: #f8c471;
-  }
-
-  .content {
-    margin-left: 25%;
-    width: 75%;
-    padding: 20px;
-  }
-
-  @media (max-width: 768px) {
-    .sidebar {
-      position: relative;
-      width: 100%;
-      height: auto;
-      flex-direction: column;
-      justify-content: center;
-      padding: 10px;
-    }
-
-    .content {
-      margin-left: 0;
-      width: 100%;
-    }
-
-    .logo-container img {
-      margin-left: 0.5rem;
-    }
-
-    .sidebar img {
-      width: 4rem;
-      height: 4rem;
-    }
-
-    .navbar-toggler {
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .sidebar {
-      display: none;
-    }
-
-    .sidebar.show {
-      display: block ;
-    }
-  }
+         
 
 script.
   document.addEventListener('DOMContentLoaded', function () {
-    const toggleButton = document.querySelector('.navbar-toggler'); // Match the corrected class in HTML
+    const toggleButton = document.querySelector('.navbar-toggler-icon');
     const sidebar = document.getElementById('sidebarContent');
     const closeButton = document.querySelector('.close-btn');
 
-    if (toggleButton && sidebar && closeButton) {
-      // Toggle the sidebar on click
-      toggleButton.addEventListener('click', function () {
-        sidebar.classList.toggle('show');
-      });
+    toggleButton.addEventListener('click', function () {
+      sidebar.classList.toggle('show');
+    });
 
-      // Close the sidebar on close button click
-      closeButton.addEventListener('click', function () {
-        sidebar.classList.remove('show');
-      });
-    }
+    closeButton.addEventListener('click', function () {
+      sidebar.classList.remove('show');
+    });
   });
-
-
-

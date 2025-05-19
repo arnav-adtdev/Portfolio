@@ -1,13 +1,14 @@
 extends ./layout  
 block content 
   .container-fluid
-    .row
-      .col-md-3
-        include ./component/sidebar
-      .col-md-9
-        .content-contact
-          p.large-text
-           b Connect with me  
+  .row
+    .col-md-3
+      include ./component/sidebar
+    .col-md-9(style="margin-left: 25%; width: 75%;")
+      .content-contact
+        p.large-text
+          b Connect with me  
+
           .container.contact-page.py-5.px-lg-0
             .row.g-5.mx-lg-0
 
@@ -94,76 +95,73 @@ block content
                     | &copy; Powered by Arnav Chaturvedi
 
     script. 
-      
-      // JavaScript to display toast notification
       document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contactForm');
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
+        const form = document.getElementById('contactForm');
+        
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
 
-        // Gather form data
-        const formData = new FormData(form);
+          // Gather form data
+          const formData = new FormData(form);
+          const formObject = Object.fromEntries(formData.entries());
 
-        // Log form data to console for debugging
-        formData.forEach((value, key) => {
-          console.log(`${key}: ${value}`);
-        });
+          // Log form data to console for debugging
+          console.log("Form Data:", formObject);
 
-        // Client-side validation
-        const requiredFields = ['name', 'email', 'subject', 'phone', 'message'];
-        for (const field of requiredFields) {
-          if (!formData.get(field)) {
-            showToast(`Please fill out the ${field} field`);
-            return;
+          // Client-side validation
+          const requiredFields = ['name', 'email', 'subject', 'phone', 'message'];
+          for (const field of requiredFields) {
+            if (!formObject[field]?.trim()) {
+              showToast(`Please fill out the ${field} field`);
+              return;
+            }
           }
-        }
 
-        // Perform form submission logic here using Fetch API
-        fetch(form.action, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.json()) // Parse the response as JSON
-        .then(data => {
-          if (data.success) {
+          // Perform form submission logic here using Fetch API
+          fetch(form.action, {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json()) // Parse the response as JSON
+          .then(data => {
+            if (data.success) {
+              Toastify({
+                text: data.message,
+                duration: 3000,
+                close: true,
+                gravity: "bottom",
+                position: "center",
+                backgroundColor: "#28a745"
+              }).showToast();
+              form.reset(); // Optionally reset the form after successful submission
+            } else {
+              showToast(data.message);
+            }
+          })
+          .catch(error => {
             Toastify({
-              text: data.message,
+              text: "An error occurred",
               duration: 3000,
               close: true,
               gravity: "bottom",
               position: "center",
-              backgroundColor: "#28a745"
+              backgroundColor: "#dc3545"
             }).showToast();
-            form.reset(); // Optionally reset the form after successful submission
-          } else {
-            showToast(data.message);
-          }
-        })
-        .catch(error => {
+            console.error('Error:', error);
+          });
+        });
+
+        function showToast(message) {
           Toastify({
-            text: "An error occurred",
+            text: message,
             duration: 3000,
             close: true,
-            gravity: "bottom",
+            gravity: "top",
             position: "center",
-            backgroundColor: "#dc3545"
+            backgroundColor: "#333"
           }).showToast();
-          console.error('Error:', error);
-        });
+        }
       });
-
-      function showToast(message) {
-        Toastify({
-          text: message,
-          duration: 3000,
-          close: true,
-          gravity: "bottom",
-          position: "center",
-          backgroundColor: "#333"
-        }).showToast();
-      }
-      });
-
 
 
 
